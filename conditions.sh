@@ -1,12 +1,12 @@
 
 #!/bin/bash
 
-number=$1
+echo "Enter the number:"
+read number
 
-if [ $number -lt 10 ]; then
-   echo "$number is less tha 10"
-elif [ $number -gt 10 ]; then 
-    echo "$number is greater than 10"
-else
-    echo "$number is equal to 10"
+if [ $((number % 2))  -eq  0 ]; then 
+    echo "The given number is EVEN"
+
+else 
+    echo "The given number is ODD"
 fi
