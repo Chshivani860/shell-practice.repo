@@ -1,3 +1,5 @@
+#!/bin/bash
+
 userid=$(id -u)
 
 R="\e[31m"
