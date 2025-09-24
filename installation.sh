@@ -45,5 +45,5 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y
     validate $? "python3"
 else
-    echo -e "python3 already exist............ $y skipping $N"
+    echo -e "python3 already exist............ $Y skipping $N"
 fi
