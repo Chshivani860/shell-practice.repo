@@ -16,3 +16,25 @@ else
     echo "Installation is SUCCESS"
 
 fi
+
+
+dnf install nginx -y
+
+if [ $? -ne 0 ]; then 
+    echo "Error:: Installing nginx is failed"
+    exit 1
+else
+    echo "Installation is SUCCESS"
+
+fi
+
+
+dnf install mongodb-org -y
+
+if [ $? -ne 0 ]; then 
+    echo "Error:: Installing mongodb is failed"
+    exit 1
+else
+    echo "Installation is SUCCESS"
+
+fi
