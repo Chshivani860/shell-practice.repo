@@ -7,6 +7,19 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+
+
+
+logs_floders="/var/lod/shell-script"
+script_name=$(echo $0 | cut -d "." -f1)
+log_files="$logs_folders/$script_name.log"
+
+
+mkdir -p $logs_folder
+echo "script started excuted at: $(date)"
+
+
+
 if [ $userid -ne 0 ]; then
     echo "Error:: Please run this script with root privelege"
     exit 1
