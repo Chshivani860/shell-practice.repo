@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-if [ $userid -ne 0]; then
+if [ $userid -ne 0 ]; then
     echo "Error:: Please run this script with root privelege"
 fi
 
