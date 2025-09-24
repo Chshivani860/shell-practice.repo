@@ -34,7 +34,7 @@ validate(){
 dnf list install mysql &>>$log_file
 if [ $? -ne 0 ]; then
 
-    dnf install mysql -y&>>$log_file
+    dnf install mysql -y &>>$log_file
     validate $? "mysql"
 else
     echo -e "mysql is already exist ............ $Y skipping $N"
