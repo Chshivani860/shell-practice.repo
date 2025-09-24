@@ -1,4 +1,4 @@
-for i in {1..10}
+for i in {A..N}
 do
     echo $i
 
