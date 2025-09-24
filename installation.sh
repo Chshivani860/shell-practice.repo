@@ -29,10 +29,10 @@ else
 fi
 
 
-dnf install mongodb-org -y
+dnf install mongodb-mongosh -y
 
 if [ $? -ne 0 ]; then 
-    echo "Error:: Installing mongodb is failed"
+    echo "Error:: Installing mongodb-mongosh is failed"
     exit 1
 else
     echo "Installation is SUCCESS"
