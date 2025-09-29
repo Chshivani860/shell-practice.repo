@@ -35,7 +35,7 @@ if [ -f "$target" ]; then
 
 fi
 
-
+target="$1"
 if [ -d "$target" ]; then
     echo ""$traget" is directory."
 else 
