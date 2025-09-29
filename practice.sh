@@ -13,33 +13,27 @@ END_COMMENT
 
 
 #!/bin/bash
-
-if [ -z "$1" ]; then 
+target="$1"
+if [ -z "$target" ]; then 
     echo "Usage: $0 <filename or directory>"
     exit 1
 fi
-
-target="$1"
-
 if [ -e "$target" ]; then
-    echo ""$target" exists."
+    echo "\"$target\" exxists."
+    if  [ -f "$target" ]; then 
+        echo "\"$target\"regular file."
+        [ -r "$target" ] && echo "Readable" || echo "Not readable"
+        [ -w "$target" ] && echo "writeable" || echo "Not writeable"
+
+
+    elif [ -d "$target" ]; then
+        echo "\"$target\" is a directory."
+        echo "contents:"
+        ls  -l "$target"
+    else 
+        echo " "$target" is not a directory."
+    fi
+
 else
-    echo ""$target" does not exist."
-
+    echo "\"$target\" doest not exist."
 fi
-
-if  [ -f "$target" ]; then 
-    echo " "$target" is a regular file."
-    [ -r "$target" ] && echo "Readable" || echo "Not readable"
-
-    [ -w "$target" ] && echo "writeable" || echo "Not writeable"
-
-
-elif [ -d "$target" ]; then
-    echo ""$traget" is directory."
-    echo "contents:"
-    ls  -l "$target"
-else 
-    echo " "$target" is not a directory."
-fi
-
