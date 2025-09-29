@@ -11,7 +11,7 @@ echo "$person1: Want me to take a look?"
 echo "$person2: That'd be awesome $person1. Thanks!"
 END_COMMENT
 
-
+#print whether:The file exists it is readable It is writable Or it is not present.
 #!/bin/bash
 target="$1"
 if [ -z "$target" ]; then 
