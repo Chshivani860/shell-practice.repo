@@ -37,7 +37,7 @@ fi
 
 
 if [ -d "$target" ]; then
-    echo "'$traget' is directory."
+    echo ""$traget" is directory."
 else 
     echo "not a directory"
 fi
