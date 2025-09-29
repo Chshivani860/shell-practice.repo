@@ -21,3 +21,14 @@ fi
 
 target="$1"
 
+if [ -e "$target" ]; then
+    echo ""$target" exists."
+else
+    echo ""$target" does not exist."
+
+fi
+
+
+
+
+
