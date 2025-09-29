@@ -16,7 +16,7 @@ END_COMMENT
 
 if [ -z "$1" ]; then 
     echo "Usage: $0 <filename or directory>"
-    exist 1
+    exit 1
 fi
 
 target="$1"
