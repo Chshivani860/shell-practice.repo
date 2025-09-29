@@ -19,8 +19,8 @@ if [ -z "$target" ]; then
     exit 1
 fi
 if [ -e "$target" ]; then
-    echo "\"$target\" exxists."
-    if  [ -f "$target" ]; then 
+    echo "\"$target\" exists."
+    if  [ -d "$target" ]; then 
         echo "\"$target\"regular file."
         [ -r "$target" ] && echo "Readable" || echo "Not readable"
         [ -w "$target" ] && echo "writeable" || echo "Not writeable"
