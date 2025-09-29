@@ -28,7 +28,11 @@ else
 
 fi
 
+if [ -f "$target" ]; then 
+    [ -r "$target" ] && echo "Readable" || echo "Not readable"
 
+    [ -w "$target" ] && echo "writeable" || echo "Not writeable"
 
+fi
 
 
