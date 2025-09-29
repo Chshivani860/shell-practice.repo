@@ -24,12 +24,14 @@ if [ -e "$target" ]; then
         echo "\"$target\"regular file."
         [ -r "$target" ] && echo "Readable" || echo "Not readable"
         [ -w "$target" ] && echo "writeable" || echo "Not writeable"
-        [ -d "$target" ] && echo "\"$target\" is a directory."
-        echo "contents:"
-        ls  -l "$target"
-    else 
-        echo " "$target" is not a directory."
     fi
+
+        if [ -d "$target" ] && echo "\"$target\" is a directory."
+            echo "contents:"
+            ls  -l "$target"
+        else 
+            echo " "$target" is not a directory."
+        fi
 
 else
     echo "\"$target\" doest not exist."
