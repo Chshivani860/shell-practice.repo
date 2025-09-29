@@ -28,15 +28,13 @@ else
 
 fi
 
-if [ -f "$target" ]; then 
+if  [ -f "$target" ]; then 
     [ -r "$target" ] && echo "Readable" || echo "Not readable"
 
     [ -w "$target" ] && echo "writeable" || echo "Not writeable"
 
-fi
 
-target="$1"
-if [ -d "$target" ]; then
+elif [ -d "$target" ]; then
     echo ""$traget" is directory."
 else 
     echo "not a directory"
