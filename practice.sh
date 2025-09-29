@@ -20,14 +20,11 @@ if [ -z "$target" ]; then
 fi
 if [ -e "$target" ]; then
     echo "\"$target\" exists."
-    if  [ -d "$target" ]; then 
+    if  [ -f "$target" ]; then 
         echo "\"$target\"regular file."
         [ -r "$target" ] && echo "Readable" || echo "Not readable"
         [ -w "$target" ] && echo "writeable" || echo "Not writeable"
-
-
-    elif [ -d "$target" ]; then
-        echo "\"$target\" is a directory."
+        [ -d "$target" ] && echo "\"$target\" is a directory."
         echo "contents:"
         ls  -l "$target"
     else 
