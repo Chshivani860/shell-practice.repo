@@ -26,7 +26,8 @@ if [ -e "$target" ]; then
         [ -w "$target" ] && echo "writeable" || echo "Not writeable"
     fi
 
-        if [ -d "$target" ] && echo "\"$target\" is a directory."
+        if [ -d "$target" ]; then
+            echo "\"$target\" is a directory."
             echo "contents:"
             ls  -l "$target"
         else 
