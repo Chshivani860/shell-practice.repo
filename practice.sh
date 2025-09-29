@@ -29,6 +29,7 @@ else
 fi
 
 if  [ -f "$target" ]; then 
+    echo " "$target" is a regular file."
     [ -r "$target" ] && echo "Readable" || echo "Not readable"
 
     [ -w "$target" ] && echo "writeable" || echo "Not writeable"
@@ -36,7 +37,9 @@ if  [ -f "$target" ]; then
 
 elif [ -d "$target" ]; then
     echo ""$traget" is directory."
+    echo "contents:"
+    ls  -l "$target"
 else 
-    echo "not a directory"
+    echo " "$target" is not a directory."
 fi
 
