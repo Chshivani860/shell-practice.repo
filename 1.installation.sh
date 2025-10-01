@@ -12,7 +12,7 @@ logs_folders="/var/log/shell-script"
 script_name=$( echo $0 | cut -d "." -f1 )
 log_files="$logs_floders/$script_name.log"
 
-mkdir -p $logs_folder
+mkdir -p $logs_folders
 echo " script  started executed at: $(date) "
 
 if [ $userid -ne 0 ]; then 
