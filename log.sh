@@ -9,7 +9,7 @@ N="\e[0m"
 
 
 logs_folders="/var/log/shell-script"
-script_name=$( echo $0 | cut -d "." -f1 )
+script_name=$( echo $0 | cut -d "/" -f1 )
 log_files="$logs_floders/$script_name.po
 
 mkdir -p $logs_folders
