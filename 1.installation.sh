@@ -7,26 +7,19 @@ if [ $userid -ne 0 ]; then
     exit 1
 fi
 
-dnf install mysql -y
+validate(){
+    if [ $1 -ne 0 ]; then 
+        echo "Error:: $2 installation is FAILED"
+    else
+        echo "$2 installation is SUCCESS"
+    fi
+}
 
-if [ $? -ne 0 ]; then 
-    echo "Error:: Mysql installation is FAILED"
-else
-    echo "Mysql installation is SUCCESS"
-fi
+dnf install mysql -y
+validate $? "mysql"
 
 dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-    echo "Error :: nginx installation FAILED"
-else 
-    echo "Nginx installation is SUCCESS"
-fi
+validate $? "nginx"
 
 dnf install python3 -y
-
-if [ $? -ne 0 ]; then 
-    echo "Error :: python3 installation is FAILED"
-else 
-    echo "python3 installation is SUCCESS"
-fi
+validate $? "python3"
