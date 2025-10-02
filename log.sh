@@ -9,11 +9,11 @@ N="\e[0m"
 
 
 logs_folders="/var/log/shell-script"
-script_name=$( echo $0 | cut -d "/" -f1 )
-log_files="$logs_floders/$script_name.po
+script_name=$( echo $0 | cut -d "." -f1 )
+log_files="$logs_floders/$script_name.po"
 
 mkdir -p $logs_folders
-echo " script  started executed at: $(date) " | tee -a $log_files
+echo " Script  started executed at: $(date) " | tee -a $log_files
 
 if [ $userid -ne 0 ]; then 
     echo -e "$R Eror:: Please run this script with root previlage $N"
@@ -23,8 +23,9 @@ fi
 validate(){
     if [ $1 -ne 0 ]; then 
         echo -e " $R Error:: $2 installation is FAILED $N" | tee -a $log_files
+        exit 1
     else
-        echo -e  " $G $2 installation is SUCCESS $N" |tee -a $log_files
+        echo -e  " $G $2 installation is SUCCESS $N"  |tee -a $log_files
     fi
 }
 
@@ -46,7 +47,6 @@ else
 fi
 
 dnf list installed python3 &>>log_files
-
 if [ $? -ne 0 ]; then
     dnf install python3 -y &>>log_files
     validate $? "python3"
