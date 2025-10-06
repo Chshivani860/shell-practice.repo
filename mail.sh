@@ -1,23 +1,18 @@
 #!/bin/bash
+TO_ADDRESS=$1
+SUBJECT=$2
+ALERT_TYPE=$3
+MESSAGE_BODY=$4
+FORMATTED_BODY=$(printf '%s\n' "$MESSAGE_BODY" | sed -e 's/[]\/$*.^[]/\\&/g')
+IP_ADDRESS=$5
+TO_TEAM=$6
 
-To_address=$1
-subject=$2
-alert_type=$3
-MESSAGE_BODY=$(printf '%s\n' | sed -e "s/'/'\\\\''/g; ls/^/';\$s/\$/'/" )
-Ip_address=$5
-To_team=$6
-
-final_body=$(sed -e "s/To_team/${To_team}/" \
-                 -e "s/alert_type/${alert_type}/" \
-                 -e "s/Ip_address/${Ip_address}/" \
-                 -e "s/MESSAGE/${MESSAGE_BODY}/")
-
-
+FINAL_BODY=$(sed -e "s/TO_TEAM/$TO_TEAM/g" -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/IP_ADDRESS/$IP_ADDRESS/g" -e "s/MESSAGE/$FORMATTED_BODY/g" template.html)
 
 {
-echo "To: $To_address"
-echo "Subject: $Subject"
+echo "To: $TO_ADDRESS"
+echo "Subject: $SUBJECT"
 echo "Content-Type: text/html"
 echo ""
-echo "$final_body"
-} | msmtp "$To_address"
+echo "$FINAL_BODY"
+} | msmtp "$TO_ADDRESS"
