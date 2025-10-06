@@ -7,7 +7,10 @@ Body=$(printf '%s\n' | sed -e "s/'/'\\\\''/g; ls/^/';\$s/\$/'/" )
 Ip_address=$5
 To_team=$6
 
-final_body=$(sed -e "s/To_team/$To_team/g" -e "s/alert_type/$alert_type/g" -e "s/Ip_address/$Ip_address/g" -e "s/Body/$Body/g" templaet.html)
+final_body=$(sed -e "s/To_team/${To_team}/" \
+                 -e "s/alert_type/${alert_type}/" \
+                 -e "s/Ip_address/${Ip_address}/" \
+                 -e "s/MESSAGE/${MESSAGE}/" <<< "$Body")
 
 
 
